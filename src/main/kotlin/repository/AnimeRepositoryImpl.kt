@@ -18,7 +18,7 @@ class AnimeRepositoryImpl: AnimeRepository {
     override val page5: List<Anime>
         get() = TODO("Not yet implemented")
 
-    override suspend fun getAllAnime(page: Int): ApiResponse {
+    override suspend fun getAllAnimes(page: Int): ApiResponse {
         TODO("Not yet implemented")
     }
 

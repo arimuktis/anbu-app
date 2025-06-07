@@ -1,10 +1,11 @@
 package com.anbu.routes
 
 import com.anbu.models.ApiResponse
-import io.ktor.http.*
-import io.ktor.server.application.*
-import io.ktor.server.response.*
-import io.ktor.server.routing.*
+import io.ktor.http.HttpStatusCode
+import io.ktor.server.response.respond
+import io.ktor.server.routing.Route
+import io.ktor.server.routing.get
+import kotlin.text.toInt
 
 fun Route.getAllAnimes() {
     get("/anbu/animes") {

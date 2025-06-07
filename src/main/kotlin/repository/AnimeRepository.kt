@@ -13,6 +13,6 @@ interface AnimeRepository {
     val page4: List<Anime>
     val page5: List<Anime>
 
-    suspend fun getAllAnime(page: Int = 1): ApiResponse
+    suspend fun getAllAnimes(page: Int = 1): ApiResponse
     suspend fun searchAnime(name: String): ApiResponse
 }

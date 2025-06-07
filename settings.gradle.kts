@@ -1,1 +1,1 @@
-rootProject.name = "com.anbu.anbuktor"
+rootProject.name = "ktor-server"
