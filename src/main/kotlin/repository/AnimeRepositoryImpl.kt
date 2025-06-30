@@ -21,7 +21,7 @@ class AnimeRepositoryImpl : AnimeRepository {
     override val page1: List<Anime> = listOf(
         Anime(
             id = 1,
-            name = "Sasuke",
+            name = "Jujutsu Kaisen: Shibuya Jihen",
             image = "/images/sasuke.jpg",
             about = "Sasuke Uchiha kontole gedhi",
             rating = 5.0,
@@ -32,14 +32,14 @@ class AnimeRepositoryImpl : AnimeRepository {
             abilities = listOf("kentu", "ndangak", "chidori"),
             natureTypes = listOf("human", "ninja"),
             genres = listOf("Action", "Sci-Fi", "Drama"),
-            title = "Sasuke",
+            title = "Jujutsu Kaisen: Shibuya Jihen",
             episode = 12,
             thumbnailUrl = "https://i5.walmartimages.com/seo/Chainsaw-Man-Anime-Poster-Frameless-Gift-12-x-18-inch-30cm-x-46cm_6359bee6-6930-4115-a317-5e7362f89e1a.9d65e6cce69026b14dc9331cf557bc83.jpeg",
             isNew = true
         ),
         Anime(
             id = 2,
-            name = "Naruto",
+            name = "Kimetsu no Yaiba: Katanakaji no Sato-hen",
             image = "/images/naruto.jpg",
             about = "Naruto Uzumaki is the Seventh Hokage of the Hidden Leaf Village and a anime of the Fourth Great Ninja War. Orphaned at birth and shunned for harboring the Nine-Tails, Naruto grew into a powerful ninja through determination, friendship, and an unbreakable will. With Kurama's power and Sage Mode, he now protects the village with unmatched strength and compassion.",
             rating = 5.0,
@@ -50,7 +50,7 @@ class AnimeRepositoryImpl : AnimeRepository {
             abilities = listOf("Rasengan", "Shadow Clone", "Sage Mode"),
             natureTypes = listOf("Wind", "Yang"),
             genres = listOf("Action", "Dark Fantasy"),
-            title = "Naruto",
+            title = "Kimetsu no Yaiba: Katanakaji no Sato-hen",
             episode = 12,
             thumbnailUrl = "https://images-cdn.ubuy.co.id/633feb8bd279163476374ad1-japan-anime-manga-poster-jujutsu.jpg",
             isNew = false
