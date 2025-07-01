@@ -309,7 +309,8 @@ class AnimeRepositoryImpl : AnimeRepository {
             message = OK,
             prevPage = calculatePage(page)[PREVIOUS_PAGE_KEY],
             nextPage = calculatePage(page)[NEXT_PAGE_KEY],
-            animes = animes[page].orEmpty()
+            animes = animes[page].orEmpty(),
+            lastUpdated = System.currentTimeMillis()
         )
     }
 
