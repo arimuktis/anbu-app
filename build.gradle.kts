@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.kotlin.jvm)
     alias(libs.plugins.ktor)
     alias(libs.plugins.kotlin.plugin.serialization)
+    id("com.github.johnrengelman.shadow") version "7.1.2"
 }
 
 group = "com.anbu"
@@ -14,9 +15,13 @@ application {
     applicationDefaultJvmArgs = listOf("-Dio.ktor.development=$isDevelopment")
 }
 
-tasks.jar {
-    manifest {
-        attributes["Main-Class"] = "io.ktor.server.netty.EngineMain"
+tasks {
+    shadowJar {
+        archiveFileName.set("app.jar")
+        manifest {
+            attributes["Main-Class"] = "io.ktor.server.netty.EngineMain"
+        }
+        mergeServiceFiles()
     }
 }
 
