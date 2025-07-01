@@ -3,30 +3,25 @@ plugins {
     alias(libs.plugins.kotlin.jvm)
     alias(libs.plugins.ktor)
     alias(libs.plugins.kotlin.plugin.serialization)
-    id("com.github.johnrengelman.shadow") version "7.1.2"
 }
 
 group = "com.anbu"
 version = "0.0.1"
 
+kotlin {
+    jvmToolchain(17)
+}
+
 application {
     mainClass.set("io.ktor.server.netty.EngineMain")
+
     val isDevelopment = true
     applicationDefaultJvmArgs = listOf("-Dio.ktor.development=$isDevelopment")
 }
 
-tasks {
-    shadowJar {
-        archiveFileName.set("app.jar")
-        manifest {
-            attributes["Main-Class"] = "io.ktor.server.netty.EngineMain"
-        }
-        mergeServiceFiles()
-    }
-}
-
 repositories {
     mavenCentral()
+    maven { url= uri("https://jitpack.io") }
 }
 
 dependencies {
@@ -42,4 +37,24 @@ dependencies {
     implementation(libs.logback.classic)
     testImplementation(libs.ktor.server.test.host)
     testImplementation(libs.kotlin.test.junit)
+}
+
+tasks.getByName("build").finalizedBy("installDist")
+
+tasks.withType<Jar> {
+    // Otherwise you'll get a "No main manifest attribute" error
+    manifest {
+        attributes["Main-Class"] =application.mainClass
+    }
+
+    // To avoid the duplicate handling strategy error
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+
+    // To add all the dependencies
+    from(sourceSets.main.get().output)
+
+    dependsOn(configurations.runtimeClasspath)
+    from({
+        configurations.runtimeClasspath.get().filter { it.name.endsWith("jar") }.map { zipTree(it) }
+    })
 }

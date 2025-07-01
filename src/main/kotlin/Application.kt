@@ -8,9 +8,8 @@ import com.anbu.plugins.configureSerialization
 import com.anbu.plugins.configureStatusPages
 import io.ktor.server.application.*
 
-fun main(args: Array<String>) {
+fun main(args: Array<String>): Unit =
     io.ktor.server.netty.EngineMain.main(args)
-}
 
 fun Application.module() {
     configureKoin()
