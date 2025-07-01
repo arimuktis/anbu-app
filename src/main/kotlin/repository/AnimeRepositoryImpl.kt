@@ -79,7 +79,7 @@ class AnimeRepositoryImpl : AnimeRepository {
         Anime(
             id = 4,
             name = "Boruto",
-            image = "/images/boruto.jpg",
+            image = "/images/boruto.png",
             about = "Boruto Uzumaki is the son of the Seventh Hokage and heir to a powerful legacy. Though initially rebellious against his father’s ideals, Boruto possesses exceptional talent and leadership qualities. As a bearer of the Karma seal, he struggles with his destiny while striving to protect those he loves. His journey reflects both burden and brilliance.",
             rating = 4.2,
             power = 6,
@@ -229,7 +229,7 @@ class AnimeRepositoryImpl : AnimeRepository {
         Anime(
             id = 12,
             name = "Kakashi",
-            image = "/images/kakashi.jpg",
+            image = "/images/kakashi.png",
             about = "Kakashi Hatake, known as the Copy Ninja, served as the Sixth Hokage and is respected as a legendary shinobi. With a calm demeanor and sharp intellect, he mastered countless jutsu through his Sharingan. A loyal mentor and tactician, Kakashi's legacy continues to shape the future of the shinobi world.",
             rating = 4.9,
             power = 9,
