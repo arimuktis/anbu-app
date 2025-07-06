@@ -44,7 +44,7 @@ tasks.getByName("build").finalizedBy("installDist")
 tasks.withType<Jar> {
     // Otherwise you'll get a "No main manifest attribute" error
     manifest {
-        attributes["Main-Class"] =application.mainClass
+        attributes["Main-Class"] = application.mainClass
     }
 
     // To avoid the duplicate handling strategy error
