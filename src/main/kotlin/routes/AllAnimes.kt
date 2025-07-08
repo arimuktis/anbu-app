@@ -1,6 +1,6 @@
 package com.anbu.routes
 
-import com.anbu.models.ApiResponse
+import com.anbu.domain.models.ApiResponse
 import com.anbu.repository.AnimeRepository
 import io.ktor.http.HttpStatusCode
 import io.ktor.server.response.respond
@@ -26,12 +26,12 @@ fun Route.getAllAnimes() {
             )
         } catch (e: NumberFormatException) {
             call.respond(
-                message = ApiResponse(success = false, message = "Only Numbers can have at least one number"),
+                message = ApiResponse<Unit>(success = false, message = "Only Numbers can have at least one number"),
                 status = HttpStatusCode.BadRequest
             )
         } catch (e: IllegalArgumentException) {
             call.respond(
-                message = ApiResponse(success = false, message = "Animes not Found."),
+                message = ApiResponse<Unit>(success = false, message = "Animes not Found."),
                 status = HttpStatusCode.BadRequest
             )
         }

@@ -1,4 +1,4 @@
-package com.anbu.models
+package com.anbu.domain.models
 
 import kotlinx.serialization.Serializable
 

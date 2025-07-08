@@ -1,7 +1,8 @@
 package com.anbu.repository
 
-import com.anbu.models.ApiResponse
-import com.anbu.models.Anime
+import com.anbu.domain.models.ApiResponse
+import com.anbu.domain.models.Anime
+import com.anbu.domain.models.AnimeData
 
 interface AnimeRepository {
     val animes: Map<Int, List<Anime>>
@@ -12,6 +13,6 @@ interface AnimeRepository {
     val page4: List<Anime>
     val page5: List<Anime>
 
-    suspend fun getAllAnimes(page: Int = 1): ApiResponse
-    suspend fun searchAnime(name: String?): ApiResponse
+    suspend fun getAllAnimes(page: Int = 1): ApiResponse<AnimeData>
+    suspend fun searchAnime(name: String?): ApiResponse<AnimeData>
 }

@@ -6,11 +6,11 @@ import io.ktor.server.response.respond
 import io.ktor.server.routing.Route
 import io.ktor.server.routing.get
 
-fun Route.root() {
-    get(Endpoint.Root.path) {
+fun Route.unauthorizedRoute() {
+    get(Endpoint.Unauthorized.path) {
         call.respond(
-            message = "Welcome to the Anbu Bot API!",
-            status = HttpStatusCode.OK
+            message = "Not Authorized.",
+            status = HttpStatusCode.Unauthorized
         )
     }
 }

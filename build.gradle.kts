@@ -26,6 +26,12 @@ repositories {
 
 dependencies {
     implementation(libs.ktor.server.content.negotiation)
+    implementation(libs.ktor.server.auth)
+    implementation(libs.ktor.client.auth)
+    implementation(libs.ktor.server.sessions)
+    implementation(libs.ktor.bson.kotlinx)
+    implementation(libs.ktor.mongo.croutine)
+    implementation(libs.ktor.google.api.client)
     implementation(libs.ktor.server.core)
     implementation(libs.ktor.server.status.page)
     implementation(libs.ktor.serialization.kotlinx.json)

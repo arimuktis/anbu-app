@@ -1,11 +1,9 @@
-package com.anbu.models
+package com.anbu.domain.models
 
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class ApiResponse(
-    val success: Boolean,
-    val message: String? = null,
+data class AnimeData(
     val prevPage: Int? = null,
     val nextPage: Int? = null,
     val animes: List<Anime> = emptyList(),

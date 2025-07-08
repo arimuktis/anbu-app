@@ -1,7 +1,8 @@
 package com.anbu.repository
 
-import com.anbu.models.ApiResponse
-import com.anbu.models.Anime
+import com.anbu.domain.models.ApiResponse
+import com.anbu.domain.models.Anime
+import com.anbu.domain.models.AnimeData
 
 const val NEXT_PAGE_KEY = "nextPage"
 const val PREVIOUS_PAGE_KEY = "prevPage"
@@ -303,16 +304,23 @@ class AnimeRepositoryImpl : AnimeRepository {
         )
     )
 
-    override suspend fun getAllAnimes(page: Int): ApiResponse {
+    override suspend fun getAllAnimes(page: Int): ApiResponse<AnimeData> {
+        val prevPage = calculatePage(page)[PREVIOUS_PAGE_KEY]
+        val nextPage = calculatePage(page)[NEXT_PAGE_KEY]
+        val animeList = animes[page].orEmpty()
+
         return ApiResponse(
             success = true,
             message = OK,
-            prevPage = calculatePage(page)[PREVIOUS_PAGE_KEY],
-            nextPage = calculatePage(page)[NEXT_PAGE_KEY],
-            animes = animes[page].orEmpty(),
-            lastUpdated = System.currentTimeMillis()
+            data = AnimeData(
+                prevPage = prevPage,
+                nextPage = nextPage,
+                animes = animeList,
+                lastUpdated = System.currentTimeMillis()
+            )
         )
     }
+
 
     private fun calculatePage(page: Int): Map<String, Int?> {
         var prevPage: Int? = page
@@ -335,11 +343,16 @@ class AnimeRepositoryImpl : AnimeRepository {
         return mapOf(PREVIOUS_PAGE_KEY to prevPage, NEXT_PAGE_KEY to nextPage)
     }
 
-    override suspend fun searchAnime(name: String?): ApiResponse {
+    override suspend fun searchAnime(name: String?): ApiResponse<AnimeData> {
+        val animeList = findAnimes(query = name)
+
         return ApiResponse(
             success = true,
             message = OK,
-            animes = findAnimes(query = name)
+            data = AnimeData(
+                animes = animeList,
+                lastUpdated = System.currentTimeMillis()
+            )
         )
     }
 
