@@ -1,6 +1,6 @@
 package com.anbu.routes
 
-import com.anbu.repository.AnimeRepository
+import com.anbu.data.repository.AnimeRepository
 import io.ktor.http.HttpStatusCode
 import io.ktor.server.response.respond
 import io.ktor.server.routing.*

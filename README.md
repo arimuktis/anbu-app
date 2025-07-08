@@ -1,29 +1,53 @@
-# README #
+# 📦 Anbu App
 
-This README would normally document whatever steps are necessary to get your application up and running.
+> Short summary: A Ktor-based backend API server using MongoDB with coroutine support and Koin for DI.
 
-### What is this repository for? ###
+---
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+## 📖 Table of Contents
 
-### How do I get set up? ###
+- [What is this repository for?](#what-is-this-repository-for)
+- [Setup](#setup)
+- [Configuration](#configuration)
+- [Dependencies](#dependencies)
+- [Database](#database)
+- [How to Run](#how-to-run)
+- [Testing](#testing)
+- [Deployment](#deployment)
+- [Contribution Guidelines](#contribution-guidelines)
+- [Contact](#contact)
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
+---
 
-### Contribution guidelines ###
+## 🤔 What is this repository for?
 
-* Writing tests
-* Code review
-* Other guidelines
+- Kotlin backend service using [Ktor](https://ktor.io/)
+- MongoDB with official coroutine driver
+- Koin for dependency injection
+- RESTful API for user management and authentication
 
-### Who do I talk to? ###
+---
 
-* Repo owner or admin
-* Other community or team contact
+## ⚙️ Setup
+
+### Prerequisites
+
+- JDK 17 or newer
+- Gradle 8 or higher
+- MongoDB instance (local or [Atlas](https://www.mongodb.com/cloud/atlas))
+- Internet for dependency resolution
+
+### Clone the repo
+
+```bash
+git clone https://your-repo-url.git
+cd your-repo
+
+# For dev
+cp .env.dev .env && ./gradlew run
+
+# For staging
+cp .env.staging .env && ./gradlew run
+
+# For beta
+cp .env.beta .env && ./gradlew run

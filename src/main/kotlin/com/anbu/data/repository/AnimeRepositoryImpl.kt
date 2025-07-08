@@ -1,4 +1,4 @@
-package com.anbu.repository
+package com.anbu.data.repository
 
 import com.anbu.domain.models.ApiResponse
 import com.anbu.domain.models.Anime

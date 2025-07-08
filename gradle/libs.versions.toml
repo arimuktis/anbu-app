@@ -6,6 +6,7 @@ logback-version = "1.4.14"
 koin-version = "4.0.3"
 mongo-version = "5.3.0"
 google-api-client = "2.8.0"
+dotenv = "6.4.1"
 
 [libraries]
 ktor-server-content-negotiation = { module = "io.ktor:ktor-server-content-negotiation", version.ref = "ktor-version" }
@@ -26,6 +27,8 @@ ktor-koin-logger = { module = "io.insert-koin:koin-logger-slf4j", version.ref = 
 logback-classic = { module = "ch.qos.logback:logback-classic", version.ref = "logback-version" }
 ktor-server-test-host = { module = "io.ktor:ktor-server-test-host", version.ref = "ktor-version" }
 kotlin-test-junit = { module = "org.jetbrains.kotlin:kotlin-test-junit", version.ref = "kotlin-version" }
+dotenv = { module = "io.github.cdimascio:dotenv-kotlin", version.ref = "dotenv" }
+
 
 [plugins]
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin-version" }
