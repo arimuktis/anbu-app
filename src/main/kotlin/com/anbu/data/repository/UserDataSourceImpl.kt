@@ -40,10 +40,9 @@ class UserDataSourceImpl(
         firstName: String,
         lastName: String
     ): Boolean {
-        val filter = Document("id", userId) // or "_id" with ObjectId(userId)
+        val filter = Document("id", userId)
         val update = Updates.combine(
-            Updates.set("firstName", firstName),
-            Updates.set("lastName", lastName)
+            Updates.set("name", "$firstName $lastName")
         )
 
         val result = users.updateOne(filter, update, UpdateOptions().upsert(false))

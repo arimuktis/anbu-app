@@ -30,9 +30,9 @@ fun Application.module() {
     configureKoin()
     configureSerialization()
     configureMonitoring()
+    configureSession()
     configureAuth()
     configureRouting()
-    configureSession()
     configureDefaultHeaders()
     configureStatusPages()
 }
