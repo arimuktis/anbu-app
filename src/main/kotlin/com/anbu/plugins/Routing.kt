@@ -18,8 +18,7 @@ fun Application.configureRouting() {
         singOutRoute()
         authorizedRoute()
         unauthorizedRoute()
-        getAllAnimes()
-        getAllAnimes()
+        getAllAnimesRoute()
         searchAnimes()
 
         // static region
