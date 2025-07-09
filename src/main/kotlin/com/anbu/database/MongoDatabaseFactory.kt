@@ -19,6 +19,7 @@ val mongoModule = module {
         }
 
         val mongoUri = dotenv["MONGO_DB_URI"] ?: error("Missing MONGO_DB_URI")
+        println("Mongo URI loaded: $mongoUri") // DEBUGGING SAJA
         MongoDatabaseFactory(mongoUri)
     }
     single<MongoDatabase> { get<MongoDatabaseFactory>().db }
