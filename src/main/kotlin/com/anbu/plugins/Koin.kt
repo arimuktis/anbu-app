@@ -11,8 +11,8 @@ fun Application.configureKoin() {
     install(Koin) {
         slf4jLogger()
         modules(
-            repositoryModule,
-            mongoModule
+            mongoModule,
+                    repositoryModule
         )
     }
 }
