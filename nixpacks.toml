@@ -1,2 +1,5 @@
 [nixpacks]
 packages = ["cacert"]
+
+[phases.setup]
+nixPkgs = ["ca-certificates", "openjdk17"]
