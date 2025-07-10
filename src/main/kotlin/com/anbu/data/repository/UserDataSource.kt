@@ -7,4 +7,5 @@ interface UserDataSource {
     suspend fun saveUserInfo(user: User): Boolean
     suspend fun deleteUser(userId: String): Boolean
     suspend fun updateUserInfo(userId: String, firstName: String, lastName: String): Boolean
+    suspend fun updateUserSubscription(userId: String, isPremium: Boolean): Boolean
 }

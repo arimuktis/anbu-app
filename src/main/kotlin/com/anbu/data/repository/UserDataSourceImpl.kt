@@ -29,7 +29,6 @@ class UserDataSourceImpl(
         }
     }
 
-
     override suspend fun deleteUser(userId: String): Boolean {
         val result = users.deleteOne(Document("id", userId))
         return result.deletedCount > 0
@@ -43,6 +42,16 @@ class UserDataSourceImpl(
         val filter = Document("id", userId)
         val update = Updates.combine(
             Updates.set("name", "$firstName $lastName")
+        )
+
+        val result = users.updateOne(filter, update, UpdateOptions().upsert(false))
+        return result.modifiedCount > 0
+    }
+
+    override suspend fun updateUserSubscription(userId: String, isPremium: Boolean): Boolean {
+        val filter = Document("id", userId)
+        val update = Updates.combine(
+            Updates.set("isPremium", isPremium)
         )
 
         val result = users.updateOne(filter, update, UpdateOptions().upsert(false))
