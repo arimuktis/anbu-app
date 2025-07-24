@@ -10,7 +10,7 @@ import org.bson.Document
 
 class UserDataSourceImpl(
     val database: MongoDatabase
-): UserDataSource {
+) : UserDataSource {
 
     private val users = database.getCollection<User>(
         collectionName = "users"
@@ -40,8 +40,13 @@ class UserDataSourceImpl(
         lastName: String
     ): Boolean {
         val filter = Document("id", userId)
+        val updatedName = if (lastName.isBlank()) {
+            firstName
+        } else {
+            "$firstName $lastName"
+        }
         val update = Updates.combine(
-            Updates.set("name", "$firstName $lastName")
+            Updates.set("name", updatedName)
         )
 
         val result = users.updateOne(filter, update, UpdateOptions().upsert(false))

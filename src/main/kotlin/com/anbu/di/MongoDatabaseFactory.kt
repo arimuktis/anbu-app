@@ -1,7 +1,5 @@
-package com.anbu.database
+package com.anbu.di
 
-import com.anbu.data.repository.UserDataSource
-import com.anbu.data.repository.UserDataSourceImpl
 import com.mongodb.kotlin.client.coroutine.MongoClient
 import com.mongodb.kotlin.client.coroutine.MongoDatabase
 import io.github.cdimascio.dotenv.dotenv
@@ -24,9 +22,5 @@ val mongoModule = module {
         val client = get<MongoClient>()
         val dbName = dotenv["MONGO_DB_NAME"] ?: "anbuapp"
         client.getDatabase(dbName)
-    }
-
-    single<UserDataSource> {
-        UserDataSourceImpl(get())
     }
 }

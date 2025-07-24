@@ -4,20 +4,18 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class Anime(
-    val id: Int,
-    val name: String,
+    val id: String,
     val title: String,
     val episode: Int,
+    val like: Int? = 0,
+    val watch: Int? = 0,
+    val liked: Boolean? = false,
+    val watched: Boolean? = false,
     val image: String,
     val thumbnailUrl: String,
-    val about: String,
     val rating: Double,
-    val power: Int,
-    val month: String,
-    val day: String,
-    val family: List<String>,
-    val abilities: List<String>,
-    val natureTypes: List<String>,
+    val description: String,
     val genres: List<String>,
+    val episodes: List<Episode>,
     val isNew: Boolean
 )

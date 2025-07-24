@@ -12,7 +12,9 @@ fun Application.module() {
     configureMonitoring()
     configureSession()
     configureAuth()
-    configureRouting()
+    configureAnbuRouting()
+    configureBunnyRouting()
+    configureBunnySync()
     configureDefaultHeaders()
     configureStatusPages()
 }

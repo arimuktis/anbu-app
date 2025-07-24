@@ -7,7 +7,7 @@ import io.ktor.server.http.content.*
 import io.ktor.server.routing.*
 import org.koin.java.KoinJavaComponent.inject
 
-fun Application.configureRouting() {
+fun Application.configureAnbuRouting() {
     routing {
         val userDataSource: UserDataSource by inject(UserDataSource::class.java)
         root()
@@ -15,11 +15,15 @@ fun Application.configureRouting() {
         getUserInfoRoute(application, userDataSource)
         updateUserRoute(application, userDataSource)
         deleteUserRoute(application, userDataSource)
+        getSecureUrl(application)
         singOutRoute()
         authorizedRoute()
         unauthorizedRoute()
         getAllAnimesRoute()
         searchAnimes()
+
+        // 🚀 Add this
+        passkeyRoutes()
 
         // static region
 

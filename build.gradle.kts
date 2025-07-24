@@ -26,6 +26,7 @@ repositories {
 
 dependencies {
     implementation(libs.ktor.server.content.negotiation)
+    implementation(libs.ktor.client.content.negotiation)
     implementation(libs.ktor.server.auth)
     implementation(libs.ktor.client.auth)
     implementation(libs.ktor.server.sessions)
@@ -42,8 +43,13 @@ dependencies {
     implementation(libs.ktor.koin.logger)
     implementation(libs.logback.classic)
     implementation(libs.dotenv)
+    implementation(libs.cio)
+    implementation(libs.client.core)
     testImplementation(libs.ktor.server.test.host)
     testImplementation(libs.kotlin.test.junit)
+
+    implementation("com.webauthn4j:webauthn4j-core:0.21.3.RELEASE") // check for latest
+    implementation("org.bouncycastle:bcprov-jdk15on:1.70") // for cryptographic operations
 }
 
 tasks.getByName("build").finalizedBy("installDist")

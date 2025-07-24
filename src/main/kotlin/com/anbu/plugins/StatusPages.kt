@@ -5,6 +5,7 @@ import io.ktor.server.application.Application
 import io.ktor.server.application.install
 import io.ktor.server.plugins.statuspages.StatusPages
 import io.ktor.server.response.respond
+import javax.naming.AuthenticationException
 
 fun Application.configureStatusPages() {
     install(StatusPages) {
@@ -17,11 +18,11 @@ fun Application.configureStatusPages() {
         }
 
         // Implement Exception
-//        exception<AuthenticationException> {
-//            call, cause -> call.respond(
-//                message = "We caught an exception!",
-//                status = HttpStatusCode.OK
-//            )
-//        }
+        exception<AuthenticationException> {
+            call, cause -> call.respond(
+                message = "We caught an exception!",
+                status = HttpStatusCode.OK
+            )
+        }
     }
 }
